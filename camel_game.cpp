@@ -20,10 +20,21 @@ Lessons learned:
 using namespace std;
 
 void printInstructions();
+void showStatus(int howFar, int drinks, int badGuys);
 
 int main()
 {
     bool done = false;
+    int traveled = 0;
+    int thirst = 0;
+    int camelSleep = 0;
+    int nativesDist = -20;
+    int canteenDrinks = 2;
+    string name;
+
+    printInstructions();
+    cout << "Name your camel: ";
+    cin >> name;
 
     printInstructions();
 
@@ -40,7 +51,7 @@ int main()
             break;
             case 'D':
             break;
-            case 'E': 
+            case 'E': showStatus(int howFar, int drinks, int badGuys);
             break;
             case 'Q': cout << "Goodbye!" << endl;
                       done = true;
@@ -61,3 +72,34 @@ void printInstructions()
 
     return;
 }// end void printInstructions()
+
+char showMenu()
+{
+    char choice;
+
+    cout << "A. Drink from your canteen." << endl;
+    cout << "B. Ahead moderate speed. " << endl;
+    cout << "C. Ahead full speed." << endl;
+    cout << "D. Stop for the night." << endl;
+    cout << "E. Status check." << endl;
+    cout << "Q. Quit." << endl;
+    cin >> choice;
+
+    return choice;
+}// end showMenu()
+
+void showStatus(int howFar, int drinks, int badGuys)
+{
+    cout << "Drinks left: " << drinks << endl;
+    cout << "Miles traveled: " << howFar <<  endl;
+
+    if(badGuys < 0)
+    {
+        cout << "The natives are " << abs(badGuys) + howFar << " miles behind." << endl;
+    }
+    else
+    {
+        cout << "The natives are " << howFar - badGuys << " miles behind." << endl;
+    }// end if(badGuys < 0)
+    return;
+}// end showStatus(int howFar, int drinks, int badGuys)
