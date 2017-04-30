@@ -27,6 +27,8 @@ int randomNumber(int A, int B);
 void fullAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist);
 void moderateAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist);
 void takeDrink(int &hydrate, int &hydro);
+void testThirst(int hydro, bool &close);
+void testCamel(int camelRest, bool &close, string camName);
 
 int main()
 {
@@ -64,6 +66,9 @@ int main()
             break;
             default: cout << "Choice invalid! Try again: " << endl;
         }
+
+        testThirst(thirst, done);
+        testCamel(camelSleep, done, name);
 
     }while(!done);
 
@@ -168,3 +173,33 @@ void takeDrink(int &hydrate, int &hydro)
 
     return;
 }// end takeDrink(int &hydrate, int &hydro)
+
+void testThirst(int hydro, bool &close)
+{
+    if(hydro > 4 && hydro <= 6)
+    {
+        cout << "You are going to die of thirst!!" << endl;
+    }// end if(hydro > 4 && hydro <= 6)
+    else if(hydro > 6)
+    {
+        cout << "GAME OVER: You died of thirst." << endl;
+        close = true;
+    }// end else if(hydro > 6)
+
+    return;
+}// end testThirst(int hydro, bool &close)
+
+void testCamel(int camelRest, bool &close, string camName)
+{
+    if(camelRest > 5 && camelRest <= 8)
+    {
+        cout << camName << " the camel is tired" << endl;
+    }// end if(camelRest > 5 && camelRest <= 8)
+    else if(camelRest > 8)
+    {
+        cout << "GAME OVER: " << camName << " the camel has died" << endl;
+        close = true;
+    }// end else if(camelRest > 8)
+
+    return;
+}// end testCamel(int camelRest, bool &close, string camName)
