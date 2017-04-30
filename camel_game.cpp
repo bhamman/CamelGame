@@ -26,9 +26,11 @@ void nightRest(int &camelRest, int &badGuyDist, string camName);
 int randomNumber(int A, int B);
 void fullAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist);
 void moderateAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist);
+void takeDrink(int &hydrate, int &hydro);
 
 int main()
 {
+    srand(time(0));
     bool done = false;
     int traveled = 0;
     int thirst = 0;
@@ -47,7 +49,7 @@ int main()
     {
         switch(toupper(showMenu()))
         {
-            case 'A':
+            case 'A': takeDrink(canteenDrinks, thirst);
             break;
             case 'B': moderateAhead(traveled, thirst, camelSleep, nativesDist);
             break;
@@ -151,3 +153,18 @@ void moderateAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist)
 
     return;
 }// end moderateAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist)
+
+void takeDrink(int &hydrate, int &hydro)
+{
+    if(hydrate > 0)
+    {
+        hydrate--;
+        hydro = 0;
+    }
+    else
+    {
+         cout << "There is no water left in the canteen!" << endl;
+    }// end if(hydrate > 0)
+
+    return;
+}// end takeDrink(int &hydrate, int &hydro)
