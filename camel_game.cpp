@@ -21,6 +21,7 @@ using namespace std;
 
 void printInstructions();
 void showStatus(int howFar, int drinks, int badGuys);
+void nightRest(int &camelRest, int &badGuyDist, string camName);
 
 int main()
 {
@@ -49,7 +50,7 @@ int main()
             break;
             case 'C':
             break;
-            case 'D':
+            case 'D': nightRest(camelSleep, nativesDist, name);
             break;
             case 'E': showStatus(int howFar, int drinks, int badGuys);
             break;
@@ -103,3 +104,12 @@ void showStatus(int howFar, int drinks, int badGuys)
     }// end if(badGuys < 0)
     return;
 }// end showStatus(int howFar, int drinks, int badGuys)
+
+void nightRest(int &camelRest, int &badGuyDist, string camName)
+{
+    cout << camName << " the camel is happy!" << endl;
+    camelRest = 0;
+    badGuyDist += randomNumber(7, 14);
+
+    return;
+}// end nightRest(int &camelRest, int &badGuyDist, string camName)
