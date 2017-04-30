@@ -24,6 +24,8 @@ char showMenu();
 void showStatus(int howFar, int drinks, int badGuys);
 void nightRest(int &camelRest, int &badGuyDist, string camName);
 int randomNumber(int A, int B);
+void fullAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist);
+void moderateAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist);
 
 int main()
 {
@@ -47,9 +49,9 @@ int main()
         {
             case 'A':
             break;
-            case 'B':
+            case 'B': moderateAhead(traveled, thirst, camelSleep, nativesDist);
             break;
-            case 'C':
+            case 'C': fullAhead(traveled, thirst, camelSleep, nativesDist);
             break;
             case 'D': nightRest(camelSleep, nativesDist, name);
             break;
@@ -136,3 +138,16 @@ void fullAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist)
 
     return;
 }// end fullAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist)
+
+void moderateAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist)
+{
+    int num = randomNumber(5, 12);
+    cout << "You traveled " << num << " miles." << endl;
+    dist += num;
+
+    hydro++;
+    camelRest++;
+    badGuyDist += randomNumber(7, 14);
+
+    return;
+}// end moderateAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist)
