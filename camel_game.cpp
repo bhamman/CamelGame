@@ -31,6 +31,7 @@ void testThirst(int hydro, bool &close);
 void testCamel(int camelRest, bool &close, string camName);
 void testNatives(int badGuyDist, int dist, bool &close);
 void testDistTrav(int dist, bool &close);
+void oasis(int &fillCanteen, int &hydrate, int &camelRest);
 
 int main()
 {
@@ -73,6 +74,7 @@ int main()
         testCamel(camelSleep, done, name);
         testNatives(nativesDist, traveled, done);
         testDistTrav(traveled, done);
+        oasis(canteenDrinks, thirst, camelSleep);
 
     }while(!done);
 
@@ -233,3 +235,17 @@ void testDistTrav(int dist, bool &close)
 
     return;
 }// end testDistTrav(int dist, bool &close)
+
+void oasis(int &fillCanteen, int &hydrate, int &camelRest)
+{
+
+    if(randomNumber(1, 20) == 6)
+    {
+        cout << "You found an oasis! Be sure to fill your canteen..." << endl;
+        fillCanteen++;
+        hydrate = 0;
+        camelRest = 0;
+    }// end if(randomNumber(1, 20) == 6)
+
+    return;
+}// end oasis(int &fillCanteen, int &hydrate, int &camelRest)
