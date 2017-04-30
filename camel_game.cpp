@@ -23,8 +23,30 @@ void printInstructions();
 
 int main()
 {
+    bool done = false;
+
     printInstructions();
 
+    do
+    {
+        cout << endl;
+        switch(toupper(showMenu()))
+        {
+            case 'A':
+            break;
+            case 'B':
+            break;
+            case 'C':
+            break;
+            case 'D':
+            break;
+            case 'E': 
+            break;
+            case 'Q': cout << "Goodbye!" << endl;
+                      done = true;
+            break;
+            default: cout << "Choice invalid! Try again: " << endl;
+        }
 
     return 0;
 }
