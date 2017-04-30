@@ -29,6 +29,8 @@ void moderateAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist);
 void takeDrink(int &hydrate, int &hydro);
 void testThirst(int hydro, bool &close);
 void testCamel(int camelRest, bool &close, string camName);
+void testNatives(int badGuyDist, int dist, bool &close);
+void testDistTrav(int dist, bool &close);
 
 int main()
 {
@@ -69,6 +71,8 @@ int main()
 
         testThirst(thirst, done);
         testCamel(camelSleep, done, name);
+        testNatives(nativesDist, traveled, done);
+        testDistTrav(traveled, done);
 
     }while(!done);
 
@@ -203,3 +207,29 @@ void testCamel(int camelRest, bool &close, string camName)
 
     return;
 }// end testCamel(int camelRest, bool &close, string camName)
+
+void testNatives(int badGuyDist, int dist, bool &close)
+{
+    if(badGuyDist >= dist)
+    {
+        cout << "GAME OVER: The natives have caught you." << endl;
+        close = true;
+    }// end if(badGuyDist >= dist)
+    else if(dist - badGuyDist < 15)
+    {
+        cout << "The natives are getting close!" << endl;
+    }// end else if(dist - badGuyDist < 15)
+
+    return;
+}// end testNatives(int badGuyDist, int dist, bool &close)
+
+void testDistTrav(int dist, bool &close)
+{
+    if(dist >= 200)
+    {
+        cout << "Congratulation!! You made it across the desert!" << endl;
+        close = true;
+    }// end if(dist >= 200)
+
+    return;
+}// end testDistTrav(int dist, bool &close)
