@@ -20,8 +20,10 @@ Lessons learned:
 using namespace std;
 
 void printInstructions();
+char showMenu();
 void showStatus(int howFar, int drinks, int badGuys);
 void nightRest(int &camelRest, int &badGuyDist, string camName);
+int randomNumber(int A, int B);
 
 int main()
 {
@@ -41,7 +43,6 @@ int main()
 
     do
     {
-        cout << endl;
         switch(toupper(showMenu()))
         {
             case 'A':
@@ -52,13 +53,15 @@ int main()
             break;
             case 'D': nightRest(camelSleep, nativesDist, name);
             break;
-            case 'E': showStatus(int howFar, int drinks, int badGuys);
+            case 'E': showStatus(traveled, canteenDrinks, nativesDist);
             break;
             case 'Q': cout << "Goodbye!" << endl;
                       done = true;
             break;
             default: cout << "Choice invalid! Try again: " << endl;
         }
+
+    }while(!done);
 
     return 0;
 }
@@ -113,3 +116,23 @@ void nightRest(int &camelRest, int &badGuyDist, string camName)
 
     return;
 }// end nightRest(int &camelRest, int &badGuyDist, string camName)
+
+int randomNumber(int A, int B)
+{
+    int randNum = (rand() % (B - A + 1)) + A;
+
+    return randNum;
+}// end randomNumber(int A, int B)
+
+void fullAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist)
+{
+    int num = randomNumber(10, 20);
+    cout << "You traveled " << num << " miles." << endl;
+    dist += num;
+
+    hydro++;
+    camelRest += randomNumber(1, 3);
+    badGuyDist += randomNumber(7, 14);
+
+    return;
+}// end fullAhead(int &dist, int &hydro, int &camelRest, int &badGuyDist)
